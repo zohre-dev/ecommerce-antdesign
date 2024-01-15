@@ -1,9 +1,8 @@
-import Image from 'next/image'
+import Footer from "@/components/footer/Footer";
+import Header from "@/components/header/Header";
+import Link from "next/link";
+import styles from "./page.module.css";
 
 export default function Home() {
-  return (
-    <main className="">
-      hi
-    </main>
-  )
+  return <main className={styles.conatiner}></main>;
 }
