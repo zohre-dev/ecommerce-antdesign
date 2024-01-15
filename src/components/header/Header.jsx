@@ -22,16 +22,16 @@ const Header = () => {
             key: "men",
             children: [
               {
-                label: <Link href="/categories/mens-shirts">Men's Shirts</Link>,
+                label: <Link href="/categories/mens-shirts">Mens Shirts</Link>,
                 key: "mens-shirts",
               },
               {
-                label: <Link href="/categories/mens-shoes">Men's Shoes</Link>,
+                label: <Link href="/categories/mens-shoes">Mens Shoes</Link>,
                 key: "mens-shoes",
               },
               {
                 label: (
-                  <Link href="/categories/mens-watches">Men's Watches</Link>
+                  <Link href="/categories/mens-watches">Mens Watches</Link>
                 ),
                 key: "mens-watches",
               },
@@ -43,28 +43,24 @@ const Header = () => {
             children: [
               {
                 label: (
-                  <Link href="/categories/womens-dresses">Women's Dresses</Link>
+                  <Link href="/categories/womens-dresses">Womens Dresses</Link>
                 ),
               },
               {
-                label: (
-                  <Link href="/categories/women-shoes">Women's Shoes</Link>
-                ),
+                label: <Link href="/categories/women-shoes">Womens Shoes</Link>,
                 key: "women-shoes",
               },
               {
                 label: (
-                  <Link href="/categories/women-watches">Women's Watches</Link>
+                  <Link href="/categories/women-watches">Womens Watches</Link>
                 ),
                 key: "women-watches",
               },
               {
                 label: (
-                  <Link href="/categories/womens-jewllery">
-                    Women's Jewellery
-                  </Link>
+                  <Link href="/categories/women-watches">Womens Watches</Link>
                 ),
-                key: "womens-jewllery",
+                key: "women-watches",
               },
             ],
           },
