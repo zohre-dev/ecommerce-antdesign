@@ -1,18 +1,11 @@
 "use client";
 
-import { Card, List, Image, Typography, Flex } from "antd";
-const { Text, Paragraph } = Typography;
-
+import AddToCard from "@/components/addToCard/AddToCard";
 import styls from "./singleCategory.module.css";
+import { getProductsByCategory } from "@/utils/card";
+import { Card, List, Image, Typography, Flex, Badge, Rate } from "antd";
 
-const getProductsByCategory = async (slug) => {
-  const res = await fetch(`https://dummyjson.com/products/category/${slug}`, {
-    cache: "no-store",
-  });
-  console.log("zozo", res);
-  if (!res.ok) throw new Error("Failed");
-  return res.json();
-};
+const { Text, Paragraph } = Typography;
 
 //page to show item's of selected categories from Menu
 const page = async ({ params }) => {
@@ -27,35 +20,53 @@ const page = async ({ params }) => {
           dataSource={records.products}
           renderItem={(product, index) => (
             <List.Item>
-              <Card
-                title={product.title}
-                key={index}
-                cover={
-                  <Image
-                    src={product.thumbnail}
-                    className={styls.itemCardImg}
-                  />
-                }
+              <Badge.Ribbon
+                className={styls.itemCardBadge}
+                text={product.discountPercentage}
+                color="pink"
               >
-                <Card.Meta
-                  title={
-                    <Paragraph>
-                      <Flex gap="small">
-                        <Text>Price: ${product.price}</Text>
-                        <Text delete type="danger">
-                          $
-                          {parseFloat(
-                            product.price +
-                              (product.price * product.discountPercentage) /
-                                100,
-                          ).toFixed(2)}
-                        </Text>
-                      </Flex>
-                    </Paragraph>
+                <Card
+                  className={styls.itemCard}
+                  title={product.title}
+                  actions={[
+                    <Rate
+                      value={product.rating}
+                      allowHalf
+                      disabled
+                      key={index}
+                    />,
+                    <AddToCard key={index} item={product} />,
+                  ]}
+                  cover={
+                    <Image
+                      alt="card img"
+                      src={product.thumbnail}
+                      className={styls.itemCardImg}
+                    />
                   }
-                  description={product.description}
-                ></Card.Meta>
-              </Card>
+                >
+                  <Card.Meta
+                    title={
+                      <Paragraph
+                        ellipsis={{ symbol: "more", expandable: true, rows: 2 }}
+                      >
+                        <Flex gap="small">
+                          <Text>Price: ${product.price}</Text>
+                          <Text delete type="danger">
+                            $
+                            {parseFloat(
+                              product.price +
+                                (product.price * product.discountPercentage) /
+                                  100,
+                            ).toFixed(2)}
+                          </Text>
+                        </Flex>
+                      </Paragraph>
+                    }
+                    description={product.description}
+                  ></Card.Meta>
+                </Card>
+              </Badge.Ribbon>
             </List.Item>
           )}
         />
