@@ -56,12 +56,6 @@ const Header = () => {
                 ),
                 key: "women-watches",
               },
-              {
-                label: (
-                  <Link href="/categories/women-watches">Womens Watches</Link>
-                ),
-                key: "women-watches",
-              },
             ],
           },
           {
