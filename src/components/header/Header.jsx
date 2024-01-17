@@ -1,11 +1,14 @@
-import { Menu } from "antd";
+"use client";
+import { Menu, Typography } from "antd";
 import { HomeFilled } from "@ant-design/icons";
 import Link from "next/link";
 import styles from "./header.module.css";
+import ShoppingCard from "../shoppingCard/ShoppingCard";
 
+const { Title } = Typography;
 const Header = () => {
   return (
-    <div className={styles.continer}>
+    <div className={styles.contianer}>
       <Menu
         mode="horizontal"
         items={[
@@ -64,6 +67,8 @@ const Header = () => {
           },
         ]}
       />
+      <Title level={3}>Barmaye</Title>
+      <ShoppingCard />
     </div>
   );
 };
