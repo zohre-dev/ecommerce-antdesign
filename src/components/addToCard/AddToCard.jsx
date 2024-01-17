@@ -1,6 +1,6 @@
 import { Button, message } from "antd";
 import { useState } from "react";
-import { addToCard } from "@/utils/card";
+import { addToCard } from "@/utils/route";
 
 const AddToCard = ({ item }) => {
   const [loading, setLoading] = useState(false);
