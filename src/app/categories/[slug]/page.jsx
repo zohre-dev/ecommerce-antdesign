@@ -2,7 +2,7 @@
 
 import AddToCard from "@/components/addToCard/AddToCard";
 import styls from "./singleCategory.module.css";
-import { getProductsByCategory } from "@/utils/card";
+import { getProductsByCategory, getAllProducts } from "@/utils/route";
 import { Card, List, Image, Typography, Flex, Badge, Rate } from "antd";
 
 const { Text, Paragraph } = Typography;
@@ -10,7 +10,8 @@ const { Text, Paragraph } = Typography;
 //page to show item's of selected categories from Menu
 const page = async ({ params }) => {
   const { slug } = params;
-  const records = await getProductsByCategory(slug);
+  const records =
+    slug === "all" ? await getAllProducts() : await getProductsByCategory(slug);
 
   return (
     <div className={styls.container}>
