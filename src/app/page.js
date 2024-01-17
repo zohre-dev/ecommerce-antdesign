@@ -1,8 +1,13 @@
-import Footer from "@/components/footer/Footer";
-import Header from "@/components/header/Header";
-import Link from "next/link";
+"use client";
+import { getAllProducts } from "@/utils/route";
 import styles from "./page.module.css";
-
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 export default function Home() {
-  return <main className={styles.conatiner}></main>;
+  const router = useRouter();
+  useEffect(() => {
+    router.push("/categories/all");
+  }, []);
+
+  return <main className={styles.container}></main>;
 }
